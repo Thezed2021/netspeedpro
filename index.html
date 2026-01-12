@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Teste a velocidade da sua internet, ping, jitter e veja seu IP público. Ferramenta precisa e rápida.">
+    <meta name="keywords" content="speedtest, teste de velocidade, meu ip, velocidade internet, ping teste">
+    <meta name="theme-color" content="#0f172a"> <title>NetSpeed Pro | Análise de Qualidade de Rede</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/888/888839.png">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+
+    </head>
+<body>
+
+    <header>
+        <div class="logo">NetSpeed <span>Pro</span></div>
+        <nav>
+            <a href="#" onclick="window.location.reload()">Novo Teste</a>
+            <a href="#faq">Dúvidas</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div class="ad-banner" id="ad-top">
+            <p>Publicidade (728x90)</p>
+            </div>
+
+        <main class="dashboard">
+            
+            <section class="gauge-section">
+                <div class="gauge-container">
+                    <div class="gauge-circle">
+                        <svg viewBox="0 0 100 100">
+                            <circle class="bg-ring" cx="50" cy="50" r="45"></circle>
+                            <circle class="progress-ring" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="gauge-content">
+                            <span id="speed-value">0.0</span>
+                            <span class="unit">Mbps</span>
+                            <span id="status-text">Pronto</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="start-btn" onclick="startTest()">Iniciar Teste</button>
+                
+                <a id="share-btn" class="hidden" target="_blank">
+                    Compartilhar Resultado 📲
+                </a>
+            </section>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="icon">📡</div>
+                    <div class="info">
+                        <span class="label">Seu IP</span>
+                        <span class="value" id="ip-display">Carregando...</span>
+                        <span class="sub-value" id="device-display">Detectando...</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">⚡</div>
+                    <div class="info">
+                        <span class="label">Ping</span>
+                        <span class="value" id="ping-display">-- ms</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">⬆️</div>
+                    <div class="info">
+                        <span class="label">Upload</span>
+                        <span class="value" id="upload-display">-- Mbps</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="icon">⬇️</div>
+                    <div class="info">
+                        <span class="label">Download</span>
+                        <span class="value" id="download-display">-- Mbps</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="history-container hidden" id="history-section">
+                <h3>📜 Histórico Recente</h3>
+                <div id="history-list"></div>
+            </section>
+        </main>
+
+        <div class="ad-banner ad-rect" id="ad-middle">
+            <p>Publicidade (300x250)</p>
+             </div>
+
+        <article class="faq-section" id="faq">
+            <h2>Perguntas Frequentes</h2>
+            
+            <div class="faq-item">
+                <h3>O que é o Ping?</h3>
+                <p>Ping é o tempo de resposta da sua conexão. Quanto menor o número (ms), melhor para jogos online e chamadas de vídeo.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Qual a diferença entre Download e Upload?</h3>
+                <p>Download é a velocidade para baixar arquivos ou assistir vídeos. Upload é a velocidade para enviar arquivos ou fazer lives.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Como melhorar minha velocidade?</h3>
+                <p>Use cabo de rede em vez de Wi-Fi, feche programas em segundo plano e posicione o roteador em local central.</p>
+            </div>
+        </article>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 NetSpeed Pro. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

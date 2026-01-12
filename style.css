@@ -1,0 +1,166 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent-color: #3b82f6;
+    --accent-glow: #3b82f680;
+    --whatsapp-color: #25D366;
+    --font-main: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Previne rolagem horizontal indesejada */
+}
+
+/* Ajuste no container principal para mobile */
+.container { width: 95%; max-width: 800px; margin: 0 auto; padding: 20px 10px; flex: 1; }
+
+/* Header & Nav */
+header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 20px 5%; border-bottom: 1px solid #334155;
+}
+.logo { font-size: 1.5rem; font-weight: 700; }
+.logo span { color: var(--accent-color); }
+nav a { color: var(--text-secondary); text-decoration: none; margin-left: 20px; transition: 0.3s; font-size: 0.9rem;}
+nav a:hover { color: var(--accent-color); }
+
+/* Ads - Garantindo que não vazem a tela */
+.ad-banner {
+    background: #1e293b80; border: 1px dashed #334155; margin: 20px auto;
+    display: flex; justify-content: center; align-items: center;
+    color: #475569; font-size: 0.8rem; border-radius: 8px; overflow: hidden;
+    max-width: 100%; /* Importante para mobile */
+}
+#ad-top { height: 90px; width: 728px; }
+#ad-middle { height: 250px; width: 300px; }
+
+/* Dashboard Centralizado */
+.dashboard { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* Centraliza tudo horizontalmente */
+    gap: 30px; 
+    margin-top: 20px; 
+    width: 100%;
+}
+
+/* Gauge (Medidor) */
+.gauge-section { text-align: center; display: flex; flex-direction: column; align-items: center; width: 100%; }
+.gauge-container { width: 250px; height: 250px; position: relative; margin-bottom: 20px; }
+svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+circle { fill: none; stroke-width: 8; stroke-linecap: round; }
+.bg-ring { stroke: #334155; }
+.progress-ring {
+    stroke: var(--accent-color); stroke-dasharray: 283; stroke-dashoffset: 283;
+    transition: stroke-dashoffset 0.5s ease; filter: drop-shadow(0 0 10px var(--accent-glow));
+}
+.gauge-content {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center;
+}
+#speed-value { font-size: 3.5rem; font-weight: 700; line-height: 1; }
+.unit { color: var(--text-secondary); font-size: 1rem; }
+#status-text { margin-top: 10px; font-size: 0.9rem; color: var(--accent-color); text-transform: uppercase; }
+
+/* Botões */
+button, .share-btn {
+    padding: 15px 40px; font-size: 1.1rem; font-weight: 600; border-radius: 50px;
+    cursor: pointer; border: none; transition: 0.3s; margin-top: 10px;
+    max-width: 90%; /* Evita botões gigantes no mobile */
+}
+#start-btn {
+    background: linear-gradient(135deg, var(--accent-color), #2563eb); color: white;
+    box-shadow: 0 4px 15px var(--accent-glow);
+}
+#start-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px var(--accent-glow); }
+#start-btn:disabled { background: #475569; cursor: not-allowed; box-shadow: none; transform: none; }
+#share-btn {
+    background-color: var(--whatsapp-color); color: white; text-decoration: none;
+    display: inline-block; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+    text-align: center;
+}
+#share-btn:hover { background-color: #1ebe57; transform: translateY(-2px); }
+
+/* Stats Grid (Ajustado para não vazar) */
+.stats-grid { 
+    display: grid; 
+    /* Se houver espaço, usa colunas de pelo menos 150px, senão, estica */
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); 
+    gap: 15px; 
+    width: 100%; 
+    max-width: 600px; /* Mantém os cards agrupados em telas grandes */
+}
+.stat-card {
+    background: var(--card-bg); padding: 20px; border-radius: 12px;
+    display: flex; align-items: center; gap: 15px; border: 1px solid #334155;
+}
+.icon { font-size: 1.5rem; background: #0f172a; width: 40px; height: 40px; display: flex; justify-content: center; align-items: center; border-radius: 50%; flex-shrink: 0; }
+.info { display: flex; flex-direction: column; overflow-wrap: break-word; }
+.label { font-size: 0.8rem; color: var(--text-secondary); }
+.value { font-weight: 600; font-size: 1rem; }
+.sub-value { font-size: 0.75rem; color: var(--accent-color); margin-top: 2px; }
+
+/* Histórico */
+.history-container { width: 100%; max-width: 600px; background: var(--card-bg); padding: 20px; border-radius: 12px; border: 1px solid #334155; }
+.history-container h3 { font-size: 1rem; margin-bottom: 15px; color: var(--text-secondary); border-bottom: 1px solid #334155; padding-bottom: 10px;}
+.history-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #33415530; font-size: 0.9rem; }
+.history-item:last-child { border: none; }
+
+/* FAQ */
+.faq-section { margin-top: 50px; width: 100%; max-width: 600px; align-self: center; }
+.faq-section h2 { text-align: center; margin-bottom: 30px; font-size: 1.5rem; }
+.faq-item { background: var(--card-bg); padding: 20px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--accent-color); }
+.faq-item h3 { font-size: 1.1rem; margin-bottom: 10px; }
+.faq-item p { color: var(--text-secondary); font-size: 0.95rem; }
+
+footer { text-align: center; padding: 20px; font-size: 0.8rem; color: #475569; margin-top: auto; }
+.hidden { display: none !important; }
+
+/* =========================================
+   RESPONSIVIDADE (CORREÇÃO MOBILE)
+========================================= */
+
+/* Para Tablets e Celulares maiores (abaixo de 768px) */
+@media (max-width: 768px) {
+    #ad-top { width: 100%; height: auto; aspect-ratio: 728/90; } /* Ajusta banner topo */
+}
+
+/* Para a maioria dos Celulares (abaixo de 600px) */
+@media (max-width: 600px) {
+    header { padding: 15px 5%; }
+    .logo { font-size: 1.3rem; }
+    
+    /* Diminui um pouco o medidor */
+    .gauge-container { width: 220px; height: 220px; }
+    #speed-value { font-size: 2.8rem; }
+
+    /* FORÇA 1 COLUNA PARA TUDO FICAR EMPILHADO E CENTRALIZADO */
+    .stats-grid { 
+        grid-template-columns: 1fr; /* Uma coluna apenas */
+        max-width: 100%; /* Usa a largura total disponível */
+    }
+
+    /* Ajustes finos nos cards para mobile */
+    .stat-card { padding: 15px; }
+    
+    /* Ajuste do histórico no mobile */
+    .history-item { flex-direction: column; gap: 5px; text-align: center; }
+}
+
+/* Para Celulares muito estreitos (ex: iPhone SE antigo, Galaxy Fold fechado) */
+@media (max-width: 380px) {
+    .gauge-container { width: 200px; height: 200px; }
+    #speed-value { font-size: 2.2rem; }
+    button, .share-btn { width: 100%; padding: 12px; font-size: 1rem; }
+}
